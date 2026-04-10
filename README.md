@@ -1,11 +1,11 @@
 # FloodGuardAI
 
-![Platform](https://img.shields.io/badge/platform-Android%20%2B%20PHP-blue)
-![Kotlin](https://img.shields.io/badge/Kotlin-2.0-orange)
-![Jetpack Compose](https://img.shields.io/badge/UI-Jetpack%20Compose-4285F4)
-![Backend](https://img.shields.io/badge/backend-Plain%20PHP%208.2%2B-777BB4)
-![Database](https://img.shields.io/badge/database-MySQL%208-4479A1)
-![AI](https://img.shields.io/badge/AI-Gemini%202.0%20Flash-34A853)
+![Android](https://img.shields.io/badge/Android-App-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-2.0-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
+![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-UI-4285F4?style=for-the-badge&logo=jetpackcompose&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Gemini](https://img.shields.io/badge/Gemini-2.0%20Flash-4285F4?style=for-the-badge&logo=googlegemini&logoColor=white)
 
 FloodGuardAI is a full-stack flood intelligence platform with an Android app and a cPanel-friendly PHP backend. It combines weather signals, map risk layers, AI-assisted analysis, and community reports to support safer movement and faster flood response decisions.
 
