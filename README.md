@@ -7,27 +7,38 @@
 ![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Gemini](https://img.shields.io/badge/Gemini-2.0%20Flash-4285F4?style=for-the-badge&logo=googlegemini&logoColor=white)
 
-FloodGuardAI is a full-stack flood intelligence platform with an Android app and a cPanel-friendly PHP backend. It combines weather signals, map risk layers, AI-assisted analysis, and community reports to support safer movement and faster flood response decisions.
+FloodGuardAI is a flood safety platform for everyday users and government response teams.
+
+It brings flood risk, map insights, route safety, alerts, and field reports into one mobile-first system so decisions can be faster and clearer during heavy rain and flood events.
 
 ## Problem Statement
-Urban and peri-urban flood response often suffers from delayed risk visibility, fragmented data sources, and weak last-mile communication. Citizens and field teams need one place to understand risk, plan safer routes, submit flood evidence, and receive alerts before conditions worsen.
+When flooding starts, information is often scattered across different apps, social posts, and manual reports. This creates delays and confusion.
 
-## Your Solution
-FloodGuardAI delivers a unified flood operations workflow:
-- Predicts location-level flood risk
-- Visualizes flood/safe zones and live report pins on map layers
-- Assists users with AI chat for situational guidance
-- Analyzes safer route options for a requested time
-- Accepts image-based flood reports for rapid field intelligence
-- Triggers threshold-based alerts with history tracking
+People and response teams need a single place to quickly answer:
+- Is this area risky right now?
+- Which route is safer to travel?
+- How can we report on-ground flood conditions fast?
+- Who should be alerted when risk crosses a threshold?
+
+## Our Solution
+FloodGuardAI connects prediction, mapping, reporting, and alerting in one workflow:
+- Predict flood risk for a selected location
+- Show flood zones and safer zones on a live map
+- Let users ask an AI assistant for flood-related guidance
+- Analyze safer routes by time and destination
+- Collect flood photo reports from the field
+- Send threshold-based alerts and keep alert history
 
 ## Key Features
-- Android app with 7 production screens: Dashboard, Map, AI Chat, Route Planner, Report Upload, Alerts, Settings/Profile
-- Plain PHP REST API (no heavy framework), deployable on standard cPanel hosting
-- JWT-style auth flow: register, login, refresh, profile
-- Cron-based alert evaluation (`backend/scripts/cron_alerts.php`)
-- Gemini-assisted prediction/chat/report analysis with deterministic fallbacks in app repository logic
-- Bilingual app support (`en`, `bn`)
+- Easy-to-understand risk score and risk level (low/medium/high)
+- Live map layers for flood zones, safe zones, and report pins
+- AI chat assistant for practical flood safety answers
+- Route safety analysis before travel
+- Photo-based flood report upload for field intelligence
+- Personal alerts by location and risk threshold
+- Alert event history for monitoring and follow-up
+- Bilingual user experience (English and Bangla)
+- Android frontend + lightweight PHP backend for practical deployment
 
 ## Target Users
 Primary target: Government (B2G)
