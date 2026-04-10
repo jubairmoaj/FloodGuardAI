@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ফ্লাডগার্ড এআই</string>
+    <string name="dashboard_title">বন্যা ড্যাশবোর্ড</string>
+    <string name="map_title">বন্যা মানচিত্র</string>
+    <string name="chat_title">এআই সহায়তা</string>
+    <string name="route_title">রুট পরিকল্পনা</string>
+    <string name="report_title">বন্যা রিপোর্ট</string>
+    <string name="alerts_title">সতর্কতা</string>
+    <string name="settings_title">সেটিংস</string>
+</resources>

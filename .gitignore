@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+backend/.env
+backend/storage/uploads/*
+!backend/storage/uploads/.gitkeep

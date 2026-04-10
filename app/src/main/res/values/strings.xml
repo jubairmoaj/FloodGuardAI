@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FloodGuard AI</string>
+    <string name="dashboard_title">Flood Dashboard</string>
+    <string name="map_title">Flood Map</string>
+    <string name="chat_title">Ask AI</string>
+    <string name="route_title">Route Planner</string>
+    <string name="report_title">Report Flood</string>
+    <string name="alerts_title">Alerts</string>
+    <string name="settings_title">Settings</string>
 </resources>
