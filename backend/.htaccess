@@ -1,0 +1,11 @@
+Options -MultiViews
+DirectoryIndex public/index.php
+
+RewriteEngine On
+
+# Route deployed API requests from /backend_FloodGuard/api/v1/*
+# into the actual PHP front controller at /backend_FloodGuard/public/index.php
+RewriteRule ^api/v1(?:/.*)?$ public/index.php [QSA,L]
+
+# Opening /backend_FloodGuard/ in a browser should land in /public/
+RewriteRule ^$ public/ [R=302,L]

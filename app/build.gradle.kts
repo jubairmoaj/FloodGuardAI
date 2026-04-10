@@ -18,7 +18,14 @@ android {
         versionCode = 1
         versionName = "1.0"
         buildConfigField("String", "API_BASE_URL", "\"https://usermatrix.my.id/backend_FloodGuard/api/v1/\"")
+        buildConfigField("String", "GOOGLE_MAPS_REST_BASE_URL", "\"https://maps.googleapis.com/maps/api/\"")
+        buildConfigField("String", "OPENWEATHER_BASE_URL", "\"https://api.openweathermap.org/data/2.5/\"")
+        buildConfigField("String", "GEMINI_BASE_URL", "\"https://generativelanguage.googleapis.com/v1beta/\"")
         manifestPlaceholders["googleMapsApiKey"] = "AIzaSyDuCzAKFGlHk5SieranG0dYaCguaRE1Ot8"
+        buildConfigField("String", "GOOGLE_MAPS_API_KEY", "\"AIzaSyDuCzAKFGlHk5SieranG0dYaCguaRE1Ot8\"")
+        buildConfigField("String", "OPENWEATHER_API_KEY", "\"414c28fde1bade7bfdfea4f86a8010b2\"")
+        buildConfigField("String", "GEMINI_API_KEY", "\"AIzaSyCtrCz6MTvhOeGvNDEIjD1ASkxcZwRTsEY\"")
+        buildConfigField("String", "GEMINI_MODEL", "\"gemini-2.0-flash\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

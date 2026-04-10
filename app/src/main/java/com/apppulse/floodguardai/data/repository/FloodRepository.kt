@@ -44,5 +44,12 @@ interface FloodRepository {
 }
 
 data class RepositoryConfig(
-    val baseUrl: String
+    val baseUrl: String,
+    val googleMapsRestBaseUrl: String,
+    val googleMapsApiKey: String,
+    val openWeatherBaseUrl: String,
+    val openWeatherApiKey: String,
+    val geminiBaseUrl: String,
+    val geminiApiKey: String,
+    val geminiModel: String
 )

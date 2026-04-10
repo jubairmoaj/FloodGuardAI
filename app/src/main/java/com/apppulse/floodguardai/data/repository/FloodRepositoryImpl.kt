@@ -22,11 +22,7 @@ import com.apppulse.floodguardai.data.model.PredictionRequest
 import com.apppulse.floodguardai.data.model.PredictionResponse
 import com.apppulse.floodguardai.data.model.ReportAnalysis
 import com.apppulse.floodguardai.data.model.ReportResponse
-import com.apppulse.floodguardai.data.model.RouteAlternative
-import com.apppulse.floodguardai.data.model.RouteAnalyzeRequest
 import com.apppulse.floodguardai.data.model.RouteAnalyzeResponse
-import com.apppulse.floodguardai.data.model.RouteResolvedLocation
-import com.apppulse.floodguardai.data.model.RouteRiskSection
 import com.apppulse.floodguardai.data.model.UserProfile
 import com.apppulse.floodguardai.data.remote.RetrofitProvider
 import com.apppulse.floodguardai.ui.state.AppLanguage
@@ -46,6 +42,7 @@ class FloodRepositoryImpl(
     config: RepositoryConfig
 ) : FloodRepository {
     private val tokenStore = AuthTokenStore(context)
+    private val routePlanner = AppRoutePlanner(config)
     private val api = RetrofitProvider.create(
         baseUrl = config.baseUrl.ensureTrailingSlash(),
         accessTokenProvider = { tokenStore.accessToken() }
@@ -188,73 +185,12 @@ class FloodRepositoryImpl(
         to: LocationInput,
         time: String,
         language: AppLanguage
-    ): RouteAnalyzeResponse = runCatching {
-        api.analyzeRoute(
-            RouteAnalyzeRequest(
-                from = from,
-                to = to,
-                time = time,
-                language = language.code
-            )
-        )
-    }.getOrElse {
-        RouteAnalyzeResponse(
-            decision = "Unsafe",
-            riskPercent = 69,
-            recommendedTime = "19:00",
-            recommendedAction = "Postpone travel until rain weakens and standing water recedes.",
-            explanation = "Several sampled points on the route show elevated rain and flood history.",
-            chosenRoute = "Primary Corridor",
-            resolvedOrigin = RouteResolvedLocation(
-                lat = from.lat,
-                lng = from.lng,
-                name = from.name ?: "Origin"
-            ),
-            resolvedDestination = RouteResolvedLocation(
-                lat = to.lat,
-                lng = to.lng,
-                name = to.name ?: "Destination"
-            ),
-            riskySections = listOf(
-                RouteRiskSection(
-                    label = "Point 2",
-                    lat = 23.803,
-                    lng = 90.401,
-                    riskPercent = 74,
-                    riskLevel = "High",
-                    rainMm = 6.2,
-                    forecastTime = "16:00",
-                    historySeverityAvg = 4.2,
-                    reportDepthAvgCm = 18.0
-                ),
-                RouteRiskSection(
-                    label = "Point 4",
-                    lat = 23.789,
-                    lng = 90.392,
-                    riskPercent = 66,
-                    riskLevel = "Medium",
-                    rainMm = 4.7,
-                    forecastTime = "16:00",
-                    historySeverityAvg = 3.6,
-                    reportDepthAvgCm = 11.0
-                )
-            ),
-            alternatives = listOf(
-                RouteAlternative(
-                    route = "Via Airport Road",
-                    riskPercent = 42,
-                    recommendedTime = "18:30",
-                    reason = "Less standing-water history along the sampled points."
-                ),
-                RouteAlternative(
-                    route = "Via Mirpur Road",
-                    riskPercent = 55,
-                    recommendedTime = "19:10",
-                    reason = "Rain impact is lower later in the evening."
-                )
-            )
-        )
-    }
+    ): RouteAnalyzeResponse = routePlanner.analyzeRoute(
+        from = from,
+        to = to,
+        time = time,
+        language = language
+    )
 
     override suspend fun uploadFloodReport(
         imageUri: Uri,

@@ -16,7 +16,16 @@ class MainActivity : ComponentActivity() {
 
         val repository = FloodRepositoryImpl(
             context = applicationContext,
-            config = RepositoryConfig(baseUrl = BuildConfig.API_BASE_URL)
+            config = RepositoryConfig(
+                baseUrl = BuildConfig.API_BASE_URL,
+                googleMapsRestBaseUrl = BuildConfig.GOOGLE_MAPS_REST_BASE_URL,
+                googleMapsApiKey = BuildConfig.GOOGLE_MAPS_API_KEY,
+                openWeatherBaseUrl = BuildConfig.OPENWEATHER_BASE_URL,
+                openWeatherApiKey = BuildConfig.OPENWEATHER_API_KEY,
+                geminiBaseUrl = BuildConfig.GEMINI_BASE_URL,
+                geminiApiKey = BuildConfig.GEMINI_API_KEY,
+                geminiModel = BuildConfig.GEMINI_MODEL
+            )
         )
         val viewModel = MainViewModel(repository = repository)
 

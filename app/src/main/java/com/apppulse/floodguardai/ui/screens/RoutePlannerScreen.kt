@@ -241,11 +241,19 @@ fun RoutePlannerScreen(viewModel: MainViewModel) {
                                                 color = OnDarkMuted,
                                                 style = MaterialTheme.typography.labelSmall
                                             )
-                                            Text(
-                                                "History avg ${"%.1f".format(section.historySeverityAvg)} | Reports avg ${"%.1f".format(section.reportDepthAvgCm)} cm",
-                                                color = OnDarkMuted,
-                                                style = MaterialTheme.typography.labelSmall
-                                            )
+                                            if (section.historySeverityAvg > 0.0 || section.reportDepthAvgCm > 0.0) {
+                                                Text(
+                                                    "History avg ${"%.1f".format(section.historySeverityAvg)} | Reports avg ${"%.1f".format(section.reportDepthAvgCm)} cm",
+                                                    color = OnDarkMuted,
+                                                    style = MaterialTheme.typography.labelSmall
+                                                )
+                                            } else {
+                                                Text(
+                                                    "Live route scoring based on forecast rain at this segment.",
+                                                    color = OnDarkMuted,
+                                                    style = MaterialTheme.typography.labelSmall
+                                                )
+                                            }
                                         }
                                     }
                                 }
